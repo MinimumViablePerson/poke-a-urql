@@ -13,6 +13,17 @@ mutation DeletePokemon($id: Int!) {
 }
 `
 
+const likePokemonMutation = `
+mutation LikePokemon($id: Int!) {
+  update_pokemons(where: { id: { _eq: $id }}, _inc: {likes: 1}) {
+    returning {
+      id
+      name
+    }
+  }
+}
+`
+
 const deleteCommentMutation = `
 mutation DeleteComment($id: Int!) {
   delete_comments(where: {id: {_eq: $id}}) {
@@ -26,7 +37,9 @@ mutation DeleteComment($id: Int!) {
 const style = {
   width: '200px',
   margin: '10px',
-  border: 'solid black 2px'
+  border: 'solid black 2px',
+  borderRadius: '5px',
+  padding: '10px'
 }
 
 const imageStyle = {
@@ -36,6 +49,7 @@ const imageStyle = {
 const Pokemon = ({ pokemon }) => {
   const [, deletePokemon] = useMutation(deletePokemonMutation)
   const [, deleteComment] = useMutation(deleteCommentMutation)
+  const [, likePokemon] = useMutation(likePokemonMutation)
 
   return <div style={style}>
     <p>{pokemon.name}<button onClick={() => deletePokemon({ id: pokemon.id })}>X</button></p>
@@ -51,6 +65,10 @@ const Pokemon = ({ pokemon }) => {
           </li>
         )
       }
+      <p>
+        Likes: {pokemon.likes}
+        <button onClick={() => likePokemon({ id: pokemon.id })}>LIKE!</button>
+      </p>
       <AddCommentForm id={pokemon.id} />
     </ul>
   </div>

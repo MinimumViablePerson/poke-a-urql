@@ -4,10 +4,11 @@ import Pokemon from './Pokemon'
 
 const subscribeToPokemons = `
 subscription {
-  pokemons {
+  pokemons(order_by: {id: asc}) {
     id
     name
     image
+    likes
     comments {
       id
       content
