@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useMutation } from 'urql'
 
-const addTodoMutation = `
+const addPokemonMutation = `
 mutation AddPokemon($name: String!, $image: String!) {
   insert_pokemons(objects: { name: $name, image: $image }) {
     returning {
@@ -16,7 +16,7 @@ mutation AddPokemon($name: String!, $image: String!) {
 const AddPokemonForm = () => {
   const [pokemonInput, setPokemonInput] = useState({ name: '', image: '' })
 
-  const [, addPokemon] = useMutation(addTodoMutation)
+  const [, addPokemon] = useMutation(addPokemonMutation)
 
   const handleChange = e => {
     setPokemonInput({...pokemonInput, [e.target.name]: e.target.value})
