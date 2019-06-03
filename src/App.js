@@ -6,7 +6,8 @@ import AddPokemonForm from './components/AddPokemonForm'
 import './App.css'
 
 const App = () =>
-  <div className='App'>
+  <div className='app ui container'>
+    <br />
     <AddPokemonForm />
     <PokemonList />
   </div>

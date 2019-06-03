@@ -27,10 +27,19 @@ const AddPokemonForm = () => {
     addPokemon(pokemonInput).then(console.log)
   }
 
-  return <form onSubmit={handleSubmit}>
-    <input onChange={handleChange} name='name' placeholder='name' />
-    <input onChange={handleChange} name='image' placeholder='image' />
-    <button>ADD POKEMON</button>
+  return <form className='ui form' onSubmit={handleSubmit}>
+    <h4 class="ui dividing header">Add a new pokemon!</h4>
+      <div className='three fields'>
+      <div className='field'>
+        <input onChange={handleChange} name='name' placeholder='name' />
+      </div>
+      <div className='field'>
+        <input onChange={handleChange} name='image' placeholder='image' />
+      </div>
+      <div className='field'>
+        <button className='ui button'>ADD POKEMON</button>
+      </div>
+    </div>
   </form>
 }
 

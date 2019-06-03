@@ -27,9 +27,9 @@ const AddCommentForm = ({ id }) => {
     setCommentInput(initialCommentState)
   }
 
-  return <form onSubmit={handleSubmit}>
-    <input value={commentInput.content} onChange={handleChange} name='content' placeholder='comment' />
-    <button>ADD COMMENT</button>
+  return <form className='ui large transparent left icon input' onSubmit={handleSubmit}>
+    <i className='comment outline icon'></i>
+    <input value={commentInput.content} onChange={handleChange} name='content' placeholder='new comment' />
   </form>
 }
 

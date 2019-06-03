@@ -30,11 +30,11 @@ const PokemonList = () => {
 
   if (!pokemons) return 'Loading...'
 
-  return <ul>
+  return <div className="ui link cards centered"> 
     {
       pokemons.map(pokemon => <Pokemon key={`pokemon-${pokemon.id}`} pokemon={pokemon} />)
     }
-  </ul>
+  </div>
 }
 
 export default PokemonList

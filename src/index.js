@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider, createClient, subscriptionExchange, fetchExchange } from 'urql'
 import { SubscriptionClient } from 'subscriptions-transport-ws'
+import 'semantic-ui-css/semantic.min.css'
 
 import './index.css'
 import App from './App'
