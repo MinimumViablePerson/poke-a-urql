@@ -54,6 +54,10 @@ const Pokemon = ({ pokemon }) => {
   return <div style={style}>
     <p>{pokemon.name}<button onClick={() => deletePokemon({ id: pokemon.id })}>X</button></p>
     <img style={imageStyle} src={pokemon.image} alt={pokemon.name} />
+    <p>
+      Likes: {pokemon.likes}
+      <button onClick={() => likePokemon({ id: pokemon.id })}>LIKE!</button>
+    </p>
     <ul>
       {
         pokemon.comments.map(comment =>
@@ -65,10 +69,6 @@ const Pokemon = ({ pokemon }) => {
           </li>
         )
       }
-      <p>
-        Likes: {pokemon.likes}
-        <button onClick={() => likePokemon({ id: pokemon.id })}>LIKE!</button>
-      </p>
       <AddCommentForm id={pokemon.id} />
     </ul>
   </div>
