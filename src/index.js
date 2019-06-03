@@ -8,7 +8,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 const subscriptionClient = new SubscriptionClient(
-  'ws://hasura-test-nicolas.herokuapp.com/v1/graphql',
+  'wss://hasura-test-nicolas.herokuapp.com/v1/graphql',
   {
     reconnect: true
   }
